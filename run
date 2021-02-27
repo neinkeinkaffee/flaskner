@@ -1,0 +1,10 @@
+_e2e_tests() {
+  python app.py &
+  pytest
+  kill $(pgrep -f flask)
+}
+
+CMD=${1:-}
+case ${CMD} in
+e2e) _e2e_tests ;;
+esac
