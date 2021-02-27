@@ -1,10 +1,14 @@
 import unittest
+
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 class E2eTests(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Chrome(executable_path=r'/Applications/chromedriver')
+        options = Options()
+        options.headless = True
+        self.driver = webdriver.Chrome(executable_path=r'/Applications/chromedriver', options=options)
         self.driver.get('http://localhost:5000')
 
     def tearDown(self):
